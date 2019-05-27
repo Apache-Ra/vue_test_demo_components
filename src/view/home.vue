@@ -23,11 +23,25 @@
       return {
         waterDate: {
           id: 'id name is undefined',
-          current: 20,
-          total: 100,
+          // canvas样式树形
+          style: {width: '300px', height: '300px'},
+          // 图表背景色
+          chartBG: {color: '#DA2627', color_: '#FFF'},
+          // 是否显示符号,可不写默认false  true / false
           isMark: true,
-          // isShow: true,
-          //chartTxt:{size: 36, family: '黑体', text: 'RA',color: 'red'}
+          // 是否显示默认内容，可不写默认true  true / false
+          isShow: true,
+          // 总 int
+          total: 100,
+          // 当前 int
+          current:  30,
+          //drawText 绘制文本  不能和isShow同时存在，童话故事存在会显示自定义内容
+          chartTxt: {
+            size: 16,
+            family: '黑体',
+            text: 'RA',
+            color: '#FFF'
+          }
         }
       }
     },
