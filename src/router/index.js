@@ -27,10 +27,14 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'login',
-      // component: resolve => require.ensure([], () => resolve(require('@/view/home')), 'home'),
-      component: resolve => require(['../view/home.vue'], resolve),
+      name: 'home',
+      component: resolve => require.ensure([], () => resolve(require('@/view/home')), 'home'),
       meta: {title: '主页', requireAuth: false}
+    },    {
+      path: '/about',
+      name: 'about',
+      component: resolve => require.ensure([], () => resolve(require('@/view/about')), 'home'),
+      meta: {title: '我们', requireAuth: false}
     }
   ]
 })

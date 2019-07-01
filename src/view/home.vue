@@ -1,7 +1,7 @@
 <template>
   <div class="home components">
     <div class="components-item">
-      <Ball_Chart :waterDate="waterDate"></Ball_Chart>
+      <div @click="updateStore" class="updateStore">我要改变stor</div>
     </div>
 
   </div>
@@ -9,44 +9,48 @@
 </template>
 <script>
   import {mapState} from 'vuex'
-
-  import Ball_Chart from '../components/ball_chart'
-
   export default {
-    name: "home",
-    inject: ['reload'],
+    // 组建的名称
+    title: '',
+    name: 'home',
     computed: {
-      ...mapState({})
+      ...mapState({
+        testStore: state => state.vux.testStore,
+      })
     },
-    components: {Ball_Chart},
+    props: {},
+    // 组建刷新
+    inject: ['reload'],
+    // 挂载组建
+    components: {},
     data() {
-      return {
-        waterDate: {
-          id: 'id name is undefined',
-          // canvas样式树形
-          style: {width: '300px', height: '300px'},
-          // 图表背景色
-          chartBG: {color: '#DA2627', color_: '#FFF'},
-          // 是否显示符号,可不写默认false  true / false
-          isMark: true,
-          // 是否显示默认内容，可不写默认true  true / false
-          isShow: true,
-          // 总 int
-          total: 100,
-          // 当前 int
-          current:  30,
-          //drawText 绘制文本  不能和isShow同时存在，童话故事存在会显示自定义内容
-          chartTxt: {
-            size: 16,
-            family: '黑体',
-            text: 'RA',
-            color: '#FFF'
-          }
-        }
+      return {}
+    },
+    // 初始化记载
+    created() {
+      let vue = this;
+      // 读取初始值
+      console.log('%c Store初始化数据：'+vue.testStore,'color:red;background:yellow;');
+
+
+
+
+    },
+    // DOM加载完毕执行操作
+    mounted() {
+    },
+    // 事件处理
+    methods: {
+      updateStore(){
+        let vue = this;
+        // 改变值
+        vue.$store.commit('testStore', 'Ra');
+        console.log('%c 我改变store的值为：Ra','color:green;background:yellow;');
+        vue.$router.push({name:'about'})
       }
     },
-    created() {
-
+    // 离开路由的操作
+    destroyed() {
     }
   }
 </script>
@@ -60,5 +64,8 @@
 
   .components-item {
     padding: 20px;
+    .updateStore{
+      cursor: pointer;
+    }
   }
 </style>
