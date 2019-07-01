@@ -7,18 +7,13 @@ Vue.use(Vuex)
 const store = new Vuex.Store({})
 store.registerModule('vux', {
   state: {
-    showLoader: false,
-    // 测试数据
-    testStore:'abcdefg'
+    uploadNavData: null,
   },
   mutations: {
-    uploadShowLoader(state, showLoader){
-      state.showLoader = showLoader
+    uploadNavData(state, uploadNavData){
+      state.uploadNavData = uploadNavData
     },
-    // 测试数据
-    testStore(state, testStore){
-      state.testStore = testStore
-    }
+
   },
   getters: {},
   actions: {},

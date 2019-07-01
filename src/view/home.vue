@@ -1,21 +1,21 @@
 <template>
   <div class="home components flex-0-auto">
-    <div class="nav ">
-      <div class="item" v-for="(item, key) in navList" :key="key" @click="handleCheckNav(item)">{{item.label}}</div>
+    <div class="nav">
+      <NavBar :navBar="navList" @handleCheckNav="handleCheckNav"></NavBar>
     </div>
     <div class="nva-content">
-      <el-form ref="form" :model="navForm" label-width="80px">
-        <el-form-item v-for="(item, key) in navContentList" :key="key" :label="item.label">
-          <el-switch v-model="item.value"></el-switch>
-        </el-form-item>
-      </el-form>
+      <NavConBar :navConBar="navContentList"></NavConBar>
     </div>
+    <div class="nav-desc">
 
+    </div>
   </div>
 
 </template>
 <script>
   import {mapState} from 'vuex'
+  import NavBar from './home/navBar'
+  import NavConBar from './home/navConBar'
 
   let defaultNavContentList = [
     [
@@ -62,7 +62,7 @@
     // 组建刷新
     inject: ['reload'],
     // 挂载组建
-    components: {},
+    components: {NavBar, NavConBar},
     data() {
       return {
         // 表单
@@ -78,6 +78,8 @@
       let vue = this;
       // 读取初始值
       vue.navContentList = defaultNavContentList[0];
+      // 如果通过prop下面可注释
+      vue.$store.commit('uploadNavData', defaultNavContentList[0])
     },
     // DOM加载完毕执行操作
     mounted() {
@@ -86,7 +88,9 @@
     methods: {
       handleCheckNav(item) {
         let vue = this;
-        vue.navContentList = defaultNavContentList[item.id -1];
+        vue.navContentList = defaultNavContentList[item.id - 1];
+        // 更新vuex 状态
+        vue.$store.commit('uploadNavData', defaultNavContentList[item.id - 1])
         // 请求接口获得当前点击对象的数据信息
         // Request({
         //   url:'接口地址',
@@ -110,15 +114,7 @@
     height: 100%;
 
     .nav {
-      width: 300px;
-
-      .item {
-        border: 1px solid #CCC;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        margin: 10px;
-      }
+      width: 400px;
     }
 
     .nva-content {
@@ -127,6 +123,12 @@
       height: 100%;
       border: 1px solid #CCC;
       margin: 0 10px;
+    }
+
+    .nav-desc {
+      width: 100%;
+      border: 1px solid #CCC;
+      height: 100%;
     }
   }
 </style>
