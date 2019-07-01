@@ -41,7 +41,7 @@
           let vue = this;
           // 监听值
           vue.$watch('testStore', ()=>{
-            console.log('%c 我改变store的值为：Ra','color:green;background:orange;');
+            console.log('%c 我监听到值改变了'+vue.testStore,'color:green;background:orange;');
           })
         },
         // DOM加载完毕执行操作

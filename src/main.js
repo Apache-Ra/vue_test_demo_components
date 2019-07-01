@@ -3,6 +3,9 @@ import FastClick from 'fastclick'
 import App from './App'
 import router from './router'
 import store from './store'
+import ElementUI from 'element-ui';
+
+Vue.use(ElementUI);
 /*
  * 定义常量
  */

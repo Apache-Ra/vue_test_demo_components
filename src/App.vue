@@ -33,4 +33,5 @@ export default {
 
 <style lang="less">
 @import "./assets/theme/base.less";
+@import "../node_modules/element-ui/lib/theme-chalk/index.css";
 </style>

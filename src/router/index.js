@@ -34,7 +34,7 @@ const router = new VueRouter({
       path: '/about',
       name: 'about',
       component: resolve => require.ensure([], () => resolve(require('@/view/about')), 'home'),
-      meta: {title: '我们', requireAuth: false}
+      meta: {title: '我的', requireAuth: false}
     }
   ]
 })
