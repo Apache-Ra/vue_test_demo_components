@@ -6,7 +6,7 @@
     </el-checkbox>
     <!--动态赋值-->
     <el-checkbox-group class="checkGroup" v-model="selectCheck" @change="handleCheckChange">
-      <el-checkbox v-for="(check, key) in checkList" :key="key" :label="check">{{check.label}}</el-checkbox>
+      <el-checkbox v-for="(check, key) in checkList" :checked="check.check" :key="key" :label="check">{{check.label}}</el-checkbox>
     </el-checkbox-group>
   </div>
 </template>
@@ -80,8 +80,9 @@
         vue.checkAll = checkedCount === vue.checkList.length;
         vue.isIndeterminate = checkedCount > 0 && checkedCount < this.checkList.length;
         if(value.length !=0){
-          console.log(value)
+         // console.log(value)
         }
+        console.log(vue.selectCheck)
       }
     },
     // 离开路由的操作
