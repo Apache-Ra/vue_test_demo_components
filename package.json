@@ -11,14 +11,16 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "echarts": "^4.9.0",
     "element-ui": "^2.10.0",
     "fastclick": "^1.0.6",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "lodash": "^4.17.11",
     "uuid": "^3.3.2",
-    "vue": "^2.5.2",
+    "vue": "^2.6.11",
     "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.6.11",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -52,7 +54,6 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
