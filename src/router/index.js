@@ -77,10 +77,20 @@ const router = new VueRouter({
       component: resolve => require.ensure([], () => resolve(require('@/view/video/rtsp')), 'home'),
       meta: {title: 'rtsp', requireAuth: false}
     }, {
+      path: '/line',
+      name: 'line',
+      component: resolve => require.ensure([], () => resolve(require('@/view/chart/lineChart')), 'home'),
+      meta: {title: 'line', requireAuth: false}
+    }, {
       path: '/pie',
       name: 'pie',
       component: resolve => require.ensure([], () => resolve(require('@/view/chart/pieChart')), 'home'),
       meta: {title: 'pie', requireAuth: false}
+    }, {
+      path: '/tag',
+      name: 'tag',
+      component: resolve => require.ensure([], () => resolve(require('@/view/tagCloud/index')), 'home'),
+      meta: {title: 'tag', requireAuth: false}
     }
   ]
 })
