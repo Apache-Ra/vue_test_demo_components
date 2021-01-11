@@ -87,10 +87,20 @@ const router = new VueRouter({
       component: resolve => require.ensure([], () => resolve(require('@/view/chart/pieChart')), 'home'),
       meta: {title: 'pie', requireAuth: false}
     }, {
+      path: '/scatter',
+      name: 'scatter',
+      component: resolve => require.ensure([], () => resolve(require('@/view/scatter/index')), 'home'),
+      meta: {title: 'scatter', requireAuth: false}
+    }, {
       path: '/tag',
       name: 'tag',
       component: resolve => require.ensure([], () => resolve(require('@/view/tagCloud/index')), 'home'),
       meta: {title: 'tag', requireAuth: false}
+    }, {
+      path: '/answer',
+      name: 'answer',
+      component: resolve => require.ensure([], () => resolve(require('@/view/answer/index')), 'home'),
+      meta: {title: '答题卡', requireAuth: false}
     }
   ]
 })
