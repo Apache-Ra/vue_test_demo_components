@@ -3,9 +3,16 @@ import FastClick from 'fastclick'
 import App from './App'
 import router from './router'
 import store from './store'
-import ElementUI from 'element-ui';
+import ElementUI from 'element-ui'
+import Vant from 'vant'
+import 'vant/lib/index.css'
+import Vconsole from 'vconsole'
+import 'babel-polyfill'
 
-Vue.use(ElementUI);
+const vConsole = new Vconsole()
+Vue.use(vConsole)
+Vue.use(ElementUI)
+Vue.use(Vant)
 /*
  * 定义常量
  */
@@ -43,6 +50,6 @@ FastClick.attach(document.body)
 new Vue({
   store,
   router,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')
 

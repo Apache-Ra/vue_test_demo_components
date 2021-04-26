@@ -67,8 +67,9 @@ Axios.interceptors.response.use(data => {
  *  处理通用接口异常，比如登录超时之类的2000错误接口
  */
 let handleApiResponseStatus = response => {
+  console.log(response)
   // store.commit('updateLoading', false)
-  if (response.code === '200') {
+  if (response.StatusCode === 200) {
     return true
   } else {
     console.log((response.data.msg)?response.data.msg : '服务器异常',)
@@ -79,6 +80,7 @@ let handleApiResponseStatus = response => {
  *  处理请求异常比如网络异常
  */
 let handleHttpResponseStatus = (error, status) => {
+  console.log(error)
   console.log('网络链接异常，请稍后重试！')
   return false
 }

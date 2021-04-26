@@ -62,122 +62,80 @@ export default {
     })
   },
   methods: {
-    // 格式化数据
-    formatData(data) {
-      let xAxisData = []
-      let seriesData = []
-      let yearArray = []
-      let numberArray = []
-      data.forEach((item, index) => {
-        yearArray[index] = item.year
-        numberArray[index] = item.number
-        xAxisData.push(item.name)
-      })
-      const seriesPublic = {
-        type: 'scatter',
-        smooth: true,
-        symbol: 'circle',
-        symbolSize: (value, index) => {
-          return value / 2
-        },
-        markPoint: {
-          itemStyle: {
-            normal: {
-              borderColor: '#1e90ff',
-              borderWidth: 1,
-              label: {
-                show: true
-              }
-            }
-          },
-          data: [
-            {type: 'min', name: '最小值'},
-            {type: 'max', name: '最小值'}
-          ]
-        },
-      }
-      let seriesYear = {
-        name: '年限',
-        em: '年',
-        data: yearArray,
-        yAxis: 1,
-        itemStyle: {
-          normal: {
-            color: '#38f9d7',
-            lineStyle: {
-              color: 'rgba(255,0,0,0)',
-            },
-          }
-        }
-      }
-
-      let seriesNumber = {
-        name: '数量',
-        em: '个',
-        data: numberArray,
-        yAxisIndex: 1,
-        itemStyle: {
-          normal: {
-            color: '#00f2fe',
-            lineStyle: {
-              color: 'rgba(255,0,0,0)',
-            }
-          }
-        }
-      }
-      seriesYear = Object.assign(seriesYear, seriesPublic)
-      seriesNumber = Object.assign(seriesNumber, seriesPublic)
-      seriesData = [seriesYear, seriesNumber]
-      return {xAxisData, seriesData}
-    },
     // 渲染图表
     initChart(ID) {
       let vue = this
       vue.charts = Echarts.init(document.getElementById(ID))
       window.onresize = vue.charts.resize
-      const data = vue.formatData(mockData)
+
+      let hours = ['A','B','C','D'];
+      let days = [10,20,30,40,50,60,70];
+      let data = [
+        [25],
+        [10],
+        [15],
+        [20],
+        [10],
+        [10],
+        [15]
+      ]
+      data = data.map(function (item) {
+        if(item){
+          return [item[1], item[0], item[2], item[3]]
+        }
+      })
+
       vue.charts.setOption({
         grid: {x: 80, y: 60, x2: 80, y2: 30, borderWidth: 1},
-        tooltip: {
-          // show: true,
-          trigger: 'axis',
-          feature: {
-            dataZoom: {
-              yAxisIndex: 'none'
-            },
-            dataView: {readOnly: false},
-            magicType: {type: ['line', 'bar']},
-            restore: {},
-            saveAsImage: {}
-          }
-        },
         backgroundColor: '#FFF',
+        tooltip: {
+          position: 'top',
+
+        },
         xAxis: {
-          name: '品牌',
           type: 'category',
-          data: data.xAxisData,
-        },
-        legend: {
-          data: ['年限', '数量']
-        },
-        yAxis: [
-          {
-            type: 'value',
-            name: '年限',
-            position: 'left',
-            axisLabel: {
-              formatter: '{value} 年'
+          data: hours,
+          boundaryGap: false,
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#999',
+              type: 'dashed'
             }
-          }, {
-            type: 'value',
-            name: '数量',
-            position: 'right',
-            axisLabel: {
-              formatter: '{value} 个'
-            }
+          },
+          axisLine: {
+            show: false
           }
+        },
+        yAxis: {
+          type: 'value',
+          data: days,
+          axisLine: {
+            show: false
+          }
+        },
+        series: [
+          {
+            name: 'A',
+            type: 'line',
+            data: data[0],
+          },
+          {
+            name: 'B',
+            type: 'line',
+            data: data[1],
+          },
+          {
+            name: 'C',
+            type: 'line',
+            data: data[2],
+          },
+          {
+            name: 'D',
+            type: 'line',
+            data: data[3],
+          },
         ],
-        series: data.seriesData,
       })
     },
   },

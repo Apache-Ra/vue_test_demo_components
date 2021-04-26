@@ -1,23 +1,24 @@
 <template>
   <div class="home components flex-0-auto">
-    <div class="nav">
-      <NavBar :navBar="navList" @handleCheckNav="handleCheckNav"></NavBar>
-    </div>
-    <div class="nva-content">
-      <NavConBar :navConBar="navContentList"></NavConBar>
-    </div>
-    <div class="nav-desc">
+<!--    <div class="nav">-->
+<!--      <NavBar :navBar="navList" @handleCheckNav="handleCheckNav"></NavBar>-->
+<!--    </div>-->
+<!--    <div class="nva-content">-->
+<!--      <NavConBar :navConBar="navContentList"></NavConBar>-->
+<!--    </div>-->
+<!--    <div class="nav-desc">-->
 
-    </div>
+<!--    </div>-->
+      <div class="replace" @click="handleReplace">replace</div>
   </div>
 
 </template>
 <script>
+  import CryptoJS from "crypto-js";
   import {mapState} from 'vuex'
   import NavBar from './home/navBar'
   import NavConBar from './home/navConBar'
-
-  let defaultNavContentList = [
+   let defaultNavContentList = [
     [
       {label: '设备一', value: true},
       {label: '设备二', value: false},
@@ -86,6 +87,16 @@
     },
     // 事件处理
     methods: {
+      //
+      handleReplace(){
+        let a = '小丸子'
+        let params = CryptoJS.AES.encrypt(a, '123').toString();
+        params = encodeURIComponent(params)
+        // let params = CryptoJS.enc.Utf8.parse('AAA', '123').toString();
+        console.log(params)
+        window.open('http://localhost:8092/#/order/details?id=102&key='+params)
+      },
+      //
       handleCheckNav(item) {
         let vue = this;
         vue.navContentList = defaultNavContentList[item.id - 1];

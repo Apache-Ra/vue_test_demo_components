@@ -30,79 +30,94 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: resolve => require.ensure([], () => resolve(require('@/view/home')), 'home'),
-      meta: {title: '主页', requireAuth: false}
+      meta: {title: '主页', requireAuth: false},
     }, {
       path: '/about',
       name: 'about',
       component: resolve => require.ensure([], () => resolve(require('@/view/about')), 'home'),
-      meta: {title: '我的', requireAuth: false}
+      meta: {title: '我的', requireAuth: false},
     }, {
       path: '/check',
       name: 'check',
       component: resolve => require.ensure([], () => resolve(require('@/view/check')), 'home'),
-      meta: {title: '我的', requireAuth: false}
+      meta: {title: '我的', requireAuth: false},
     }, {
       path: '/upload',
       name: 'upload',
       component: resolve => require.ensure([], () => resolve(require('@/view/upload')), 'home'),
-      meta: {title: 'upload', requireAuth: false}
+      meta: {title: 'upload', requireAuth: false},
     }, {
       path: '/table',
       name: 'table',
       component: resolve => require.ensure([], () => resolve(require('@/view/table')), 'home'),
-      meta: {title: 'table', requireAuth: false}
+      meta: {title: 'table', requireAuth: false},
     }, {
       path: '/purview',
       name: 'purview',
       component: resolve => require.ensure([], () => resolve(require('@/view/purview')), 'home'),
-      meta: {title: '权限', requireAuth: false}
+      meta: {title: '权限', requireAuth: false},
     }, {
       path: '/swiper',
       name: 'swiper',
       component: resolve => require.ensure([], () => resolve(require('@/view/swiper/index')), 'home'),
-      meta: {title: 'table', requireAuth: false}
+      meta: {title: 'table', requireAuth: false},
     }, {
       path: '/index',
       name: 'index',
       component: resolve => require.ensure([], () => resolve(require('@/view/index')), 'home'),
-      meta: {title: 'index', requireAuth: false}
+      meta: {title: 'index', requireAuth: false},
     }, {
       path: '/unlock',
       name: 'unlock',
       component: resolve => require.ensure([], () => resolve(require('@/view/unlock/index')), 'home'),
-      meta: {title: 'index', requireAuth: false}
+      meta: {title: 'index', requireAuth: false},
     }, {
       path: '/rtsp',
       name: 'rtsp',
       component: resolve => require.ensure([], () => resolve(require('@/view/video/rtsp')), 'home'),
-      meta: {title: 'rtsp', requireAuth: false}
+      meta: {title: 'rtsp', requireAuth: false},
     }, {
       path: '/line',
       name: 'line',
       component: resolve => require.ensure([], () => resolve(require('@/view/chart/lineChart')), 'home'),
-      meta: {title: 'line', requireAuth: false}
+      meta: {title: 'line', requireAuth: false},
     }, {
       path: '/pie',
       name: 'pie',
       component: resolve => require.ensure([], () => resolve(require('@/view/chart/pieChart')), 'home'),
-      meta: {title: 'pie', requireAuth: false}
+      meta: {title: 'pie', requireAuth: false},
     }, {
       path: '/scatter',
       name: 'scatter',
       component: resolve => require.ensure([], () => resolve(require('@/view/scatter/index')), 'home'),
-      meta: {title: 'scatter', requireAuth: false}
+      meta: {title: 'scatter', requireAuth: false},
     }, {
       path: '/tag',
       name: 'tag',
       component: resolve => require.ensure([], () => resolve(require('@/view/tagCloud/index')), 'home'),
-      meta: {title: 'tag', requireAuth: false}
+      meta: {title: 'tag', requireAuth: false},
     }, {
       path: '/answer',
       name: 'answer',
       component: resolve => require.ensure([], () => resolve(require('@/view/answer/index')), 'home'),
-      meta: {title: '答题卡', requireAuth: false}
+      meta: {title: '答题卡', requireAuth: false},
+    }, {
+      path: '/mobile',
+      name: 'mobile',
+      component: resolve => require.ensure([], () => resolve(require('@/view/mobildDevices/index')), 'home'),
+      meta: {title: '移动设备', requireAuth: false},
+    }, {
+      path: '/timeline',
+      name: 'timeline',
+      component: resolve => require.ensure([], () => resolve(require('@/view/timeline/index')), 'home'),
+      meta: {title: '时间轴', requireAuth: false},
+    }, {
+      path: '/vant/upload',
+      name: 'vantUpload',
+      component: resolve => require.ensure([], () => resolve(require('@/view/vant/upload')), 'home'),
+      meta: {title: '图片上传', requireAuth: false},
     }
-  ]
+  ],
 })
 /**
  *  修改网站title的值
