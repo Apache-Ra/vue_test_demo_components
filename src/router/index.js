@@ -9,8 +9,23 @@ const routes = [
   }, {
     path: '/home',
     name: 'home',
-    meta: { title: 'HOME', keepAlive: true, isBack: false },
+    meta: { title: '首页', keepAlive: true, isBack: false, isBottom: true },
     component: _import('home/index')
+  }, {
+    path: '/find',
+    name: 'find',
+    meta: { title: '发现', keepAlive: true, isBack: false, isBottom: true },
+    component: _import('find/index')
+  }, {
+    path: '/today',
+    name: 'today',
+    meta: { title: '今日', keepAlive: true, isBack: false, isBottom: true },
+    component: _import('today/index')
+  }, {
+    path: '/mine',
+    name: 'mine',
+    meta: { title: '我的', keepAlive: true, isBack: false, isBottom: true },
+    component: _import('mine/index')
   }
 ]
 

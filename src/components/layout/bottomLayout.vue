@@ -1,21 +1,18 @@
-<template>
-    <section class='index'>
-        <van-grid>
-            <van-grid-item
-                    v-for="(grid, key) in gridList"
-                    icon="photo-o"
+<template class='bottomLayout'>
+        <van-tabbar v-model="active" route>
+            <van-tabbar-item
+                    v-for="(nav, key) in routes"
                     :key="key"
-                    @click="handleReplace(grid)"
-                    :text="grid.meta.title" />
-        </van-grid>
-    </section>
+                    replace
+                    :to="nav.path"
+                    v-text="nav.meta.title"></van-tabbar-item>
+        </van-tabbar>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-
 export default {
-  name: 'index',
+  name: 'bottomLayout',
   title: '',
   components: {},
   computed: {
@@ -32,14 +29,15 @@ export default {
   },
   data () {
     return {
-      gridList: []
+      active: '/home',
+      routes: []
     }
   },
   created () {
     const allRouter = this.$router.options.routes
     allRouter.forEach(item => {
       if (item.meta && item.meta.isBottom) {
-        this.gridList.push(item)
+        this.routes.push(item)
       }
     })
   },
@@ -47,11 +45,7 @@ export default {
   },
   mounted () {
   },
-  methods: {
-    handleReplace (item) {
-      if (this.$route.name !== item.name) this.$router.push({ name: item.name })
-    }
-  },
+  methods: {},
   watch: {},
   destroyed () {
   }
