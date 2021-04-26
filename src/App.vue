@@ -1,37 +1,37 @@
 <template>
-  <div id="app">
-    <router-view  v-if="isRouterAlive"></router-view>
-  </div>
+  <section id="app">
+    <transition :name="transitionName" appear tag="section">
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+    </transition>
+    <transition :name="transitionName" appear tag="section">
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
+    </transition>
+  </section>
 </template>
-
 <script>
 export default {
   name: 'App',
   components: {},
-  provide() {
+  data () {
     return {
-      reload: this.reload
+      transitionName: ''
     }
   },
-  data() {
-    return {
-      isRouterAlive: true
+  watch: {
+    $route (to, from) {
+      const vue = this
+      if (to.meta.index > from.meta.index) {
+        vue.transitionName = 'slide-left'
+      } else {
+        vue.transitionName = 'slide-right'
+      }
     }
-  },
-  methods: {
-    reload() {
-      let vue = this
-      vue.isRouterAlive = false
-      //在修改数据之后使用 $nextTick，则可以在回调中获取更新后的 DOM
-      vue.$nextTick(() => {
-        vue.isRouterAlive = true
-      })
-    }
-  },
+  }
 }
 </script>
-
 <style lang="less">
-@import "./assets/theme/base.less";
-@import "../node_modules/element-ui/lib/theme-chalk/index.css";
+  @import "assets/style/public";
+  @import "assets/style/animate";
 </style>

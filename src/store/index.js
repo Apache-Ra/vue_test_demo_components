@@ -1,25 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 Vue.use(Vuex)
-/**
- * 状态监听
- */
-const store = new Vuex.Store({})
-store.registerModule('vux', {
+
+export default new Vuex.Store({
   state: {
-    uploadNavData: null,
   },
   mutations: {
-    uploadNavData(state, uploadNavData){
-      state.uploadNavData = uploadNavData
-    },
-
   },
-  getters: {},
-  actions: {},
-  moudles: {}
+  actions: {
+  },
+  modules: {
+  }
 })
-/**
- * 出口
- */
-export default store

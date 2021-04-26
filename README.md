@@ -1,43 +1,35 @@
-# vue-admin
-> 项目脚手架，没有UI，方便些项目时候直接使用
->
-> 测试demo专用
->
-## 使用的组件
-``` bash
-    axios   数据请求
-    fastclick   点击延迟
-    less less-loader  css预加载
-    lodash  数组处理
-    uuid ID   （uuid.v4()）
-    vuex  状态分发
-```
-## 工具类
-``` bash
-    Axios 二次封装axios
-    LocalStage LocalStroage包装
-    Cookie  Cookie包装
-```
-## Build Setup
+# app template
 
-``` bash
-# install dependencies
+```
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-[新浪微博](http://weibo.com/818qizai898) 
+### Compiles and hot-reloads for development （default：development）
+```
+npm run serve
+```
 
-文档以其它笔记[CSDN](https://blog.csdn.net/u013216976)
+### Compiles for development（default：development）
+```
+npm run build
+```
+### Compiles for production
+```
+npm run build:pro
+```
+### Compiles for test
+```
+npm run build:test
+```
+### Compiles for release
+```
+npm run build:rel
+```
+### Run your tests
+```
+npm run test
+```
 
-框架来源[vue-admin](https://github.com/Apache-Ra/vue-admin.git)
-
-加入群聊[vue](https://jq.qq.com/?_wv=1027&k=5Yz7hvq)
+### Lints and fixes files
+```
+npm run
