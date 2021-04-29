@@ -82,6 +82,11 @@ const router = new VueRouter({
       component: resolve => require.ensure([], () => resolve(require('@/view/chart/lineChart')), 'home'),
       meta: {title: 'line', requireAuth: false},
     }, {
+      path: '/special',
+      name: 'special',
+      component: resolve => require.ensure([], () => resolve(require('@/view/chart/specialBarChart')), 'home'),
+      meta: {title: 'line', requireAuth: false},
+    }, {
       path: '/pie',
       name: 'pie',
       component: resolve => require.ensure([], () => resolve(require('@/view/chart/pieChart')), 'home'),
@@ -116,6 +121,11 @@ const router = new VueRouter({
       name: 'vantUpload',
       component: resolve => require.ensure([], () => resolve(require('@/view/vant/upload')), 'home'),
       meta: {title: '图片上传', requireAuth: false},
+    }, {
+      path: '/test',
+      name: 'test',
+      component: resolve => require.ensure([], () => resolve(require('@/view/test')), 'home'),
+      meta: {title: 'test', requireAuth: false},
     }
   ],
 })
